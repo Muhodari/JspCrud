@@ -47,6 +47,9 @@ public class Students extends HttpServlet {
                 case "/update":
                     updateStudent(request, response);
                     break;
+                case "/viewUser":
+                    ViewOneStudent(request,response);
+                    break;
                 default:
                     listStudent(request, response);
                     break;
@@ -101,4 +104,17 @@ public class Students extends HttpServlet {
         studentDao.deleteStudent(book);
         response.sendRedirect("list");
     }
+
+
+    private void ViewOneStudent(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Student listStudent = studentDao.getStudent(id);
+        request.setAttribute("listStudent", listStudent);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ViewOneUser.jsp");
+        dispatcher.forward(request, response);
+
+    }
+
+
 }

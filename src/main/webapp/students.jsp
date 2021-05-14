@@ -33,8 +33,10 @@
                 <td><c:out value="${student.gender}" /></td>
                 <td>
                     <a href="/JspStudentCrud_war_exploded/edit?id=<c:out value='${student.id}' />">Edit</a>
+                    <a href="/JspStudentCrud_war_exploded/viewUser?id=<c:out value='${student.id}' />">View</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="/JspStudentCrud_war_exploded/delete?id=<c:out value='${student.id}' />">Delete</a>
+
                 </td>
             </tr>
         </c:forEach>

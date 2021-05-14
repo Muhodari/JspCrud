@@ -23,7 +23,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Gender</th>
-            <th></th>
+            <th>Actions</th>
         </tr>
         <c:forEach var="student" items="${listStudent}">
             <tr>
@@ -32,9 +32,10 @@
                 <td><c:out value="${student.lastName}" /></td>
                 <td><c:out value="${student.gender}" /></td>
                 <td>
-                    <a href="/JspStudentCrud_war_exploded/edit?id=<c:out value='${student.id}' />">Edit</a>
-                    <a href="/JspStudentCrud_war_exploded/viewUser?id=<c:out value='${student.id}' />">View</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="/JspStudentCrud_war_exploded/edit?id=<c:out value='${student.id}' />">Edit</a> </td>
+                <td>
+                    <a href="/JspStudentCrud_war_exploded/viewUser?id=<c:out value='${student.id}' />">View</a> </td>
+                  <td>
                     <a href="/JspStudentCrud_war_exploded/delete?id=<c:out value='${student.id}' />">Delete</a>
 
                 </td>

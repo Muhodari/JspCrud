@@ -17,7 +17,7 @@
 </center>
 <div align="center">
     <table border="1" cellpadding="5">
-        <caption><h2 c:out value="${listStudent.firstName}"> profile</h2></caption>
+        <caption><h2> <c:out value="${listStudent.firstName}"/>'s profile</h2></caption>
         <tr>
             <th>ID</th>
             <th>First Name</th>

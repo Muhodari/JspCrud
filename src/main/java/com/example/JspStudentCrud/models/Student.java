@@ -17,7 +17,7 @@ public class Student {
     @Column(name = "gender")
         private String gender;
 
-//    getter and setters
+//    getters and setters
         public Long getId() {
             return id;
         }

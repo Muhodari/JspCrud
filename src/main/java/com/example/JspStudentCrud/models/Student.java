@@ -1,11 +1,23 @@
 package com.example.JspStudentCrud.models;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name ="student_tbl")
 public class Student {
+    @Id
+    @GeneratedValue(strategy =GenerationType.IDENTITY)
+    @Column(name = "id")
         private Long id;
+    @Column(name = "first_name",nullable = true,unique = true)
         private String firstName;
+    @Column(name = "last_name")
         private String lastName;
+    @Column(name = "gender")
         private String gender;
 
+//    getter and setters
         public Long getId() {
             return id;
         }

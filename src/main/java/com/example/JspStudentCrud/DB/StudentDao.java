@@ -90,6 +90,8 @@ public class StudentDao {
             disconnect();
             return rowUpdated;
         }
+
+
         public Student getStudent(int id) throws SQLException {
             Student student = null;
             String sql = "SELECT * FROM student WHERE id = ?";

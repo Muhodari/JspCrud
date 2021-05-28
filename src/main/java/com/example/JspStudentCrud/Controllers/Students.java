@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.example.JspStudentCrud.DB.StudentDaoHbnt;
 import com.example.JspStudentCrud.models.Student;
+
+import static java.lang.Long.*;
+
 /**
  * Servlet implementation class Students
  */
@@ -88,20 +91,23 @@ public class Students extends HttpServlet {
         studentDaoHbnt.saveStudent(newStudent);
         response.sendRedirect("list");
     }
+
     private void updateStudent(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String title = request.getParameter("firstName");
-        String author = request.getParameter("lastName");
+        Long id = valueOf(Integer.parseInt(request.getParameter("id")));
+        String first_name = request.getParameter("firstName");
+        String last_name = request.getParameter("lastName");
         String gender = request.getParameter("gender");
-        Student book = new Student(Long.valueOf(id), title, author, gender);
+        Student book = new Student(id,first_name, last_name, gender);
         studentDaoHbnt.updateStudent(book);
         response.sendRedirect("list");
     }
+
+
     private void deleteStudent(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Student book = new Student(Long.valueOf(id));
+        Long id = valueOf(Integer.parseInt(request.getParameter("id")));
+//        Student book = new Student(Long.valueOf(id));
         studentDaoHbnt.deleteStudent(id);
         response.sendRedirect("list");
     }

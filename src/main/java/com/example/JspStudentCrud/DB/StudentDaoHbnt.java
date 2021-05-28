@@ -52,7 +52,7 @@ public class StudentDaoHbnt {
      *
      * @param id
      */
-    public void deleteStudent(int id) {
+    public void deleteStudent(Long id) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction

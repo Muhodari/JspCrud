@@ -13,6 +13,7 @@ import com.example.JspStudentCrud.DB.StudentDaoHbnt;
 import com.example.JspStudentCrud.models.Student;
 
 import static java.lang.Long.*;
+import static java.lang.Long.valueOf;
 
 /**
  * Servlet implementation class Students
@@ -76,7 +77,7 @@ public class Students extends HttpServlet {
     }
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        Long id = valueOf(Integer.parseInt(request.getParameter("id")));
         Student existingStudent = studentDaoHbnt.getStudent(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("add_student.jsp");
         request.setAttribute("student", existingStudent);
@@ -94,7 +95,7 @@ public class Students extends HttpServlet {
 
     private void updateStudent(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
-        Long id = valueOf(Integer.parseInt(request.getParameter("id")));
+        Long id =valueOf(Integer.parseInt(request.getParameter("id")));
         String first_name = request.getParameter("firstName");
         String last_name = request.getParameter("lastName");
         String gender = request.getParameter("gender");
@@ -115,7 +116,7 @@ public class Students extends HttpServlet {
 
     private void ViewOneStudent(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        Long id =valueOf( Integer.parseInt(request.getParameter("id")));
         Student listStudent = studentDaoHbnt.getStudent(id);
         request.setAttribute("listStudent", listStudent);
         RequestDispatcher dispatcher = request.getRequestDispatcher("ViewOneUser.jsp");
